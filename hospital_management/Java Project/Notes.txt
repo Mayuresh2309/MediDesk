@@ -1,0 +1,26 @@
+Database
+Patients Table schema
+create table patients(
+     id int auto_increment primary key,
+     name varchar(255) not null,
+     age int not null,
+     gender varchar(10) not null
+     );
+
+Doctor Table schema
+create table doctors(
+     id int auto_increment primary key,
+     name varchar(255) not null,
+     specialization varchar(255) not null
+     );
+
+Appointments Table schema
+CREATE TABLE appointments (
+         id INT AUTO_INCREMENT PRIMARY KEY,
+         patient_id INT NOT NULL,
+         doctor_id INT NOT NULL,
+         appointment_date DATE NOT NULL,
+         FOREIGN KEY (patient_id) REFERENCES patients(id),
+         FOREIGN KEY (doctor_id) REFERENCES doctors(id)
+     );
+
